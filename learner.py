@@ -33,7 +33,7 @@ def autoencoder(input_img):
 		return decoded
 def fit_model(autoencoder_model,train_X,valid_X,train_ground,valid_ground):
 	batch_size = 128
-	epochs = 30
+	epochs = 5 #30
 	autoencoder_model_train_history = autoencoder_model.fit(train_X, train_ground, batch_size=batch_size,epochs=epochs,verbose=1,validation_data=(valid_X, valid_ground))
 	loss = autoencoder_model_train_history.history['loss']
 	val_loss = autoencoder_model_train_history.history['val_loss']
@@ -46,7 +46,7 @@ def fit_model(autoencoder_model,train_X,valid_X,train_ground,valid_ground):
 	plt.show()
 
 def save_model(autoencoder_model,concept_name):
-	autoencoder_model.save_model(concept_name+'.h5')
+	tf.keras.models.save_model(autoencoder_model, concept_name+'.h5')
 
 
 def build_model():
