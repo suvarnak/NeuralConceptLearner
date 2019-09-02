@@ -4,7 +4,7 @@ from learner import train_model
 
 #Train the 8 source models
 turn = 10
-base_dir = "D:\\phd\\experiments\\NeuralConceptLearner\\dataset\\mini_imagenet\\images_background\\"
+base_dir = "/content/few-shot/data/miniImageNet/images_background/"
 # randomly pick 8 source concept labels for training
 all_source_concepts = []
 for folder in os.listdir(base_dir):
