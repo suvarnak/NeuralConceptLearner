@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 import tensorflow as tf
 from tensorflow import keras as keras 
 from preprocess_dataset import prepareInputFromImageFolder
+import os
 
 def autoencoder(input_img):
 		#encoder
@@ -39,7 +40,12 @@ def fit_model(autoencoder_model,train_X,valid_X,train_ground,valid_ground):
 	plt.show()
 
 def save_model(autoencoder_model,concept_name):
-	tf.keras.models.save_model(autoencoder_model, "source_models\\"+concept_name+'.h5')
+	cwd = os.getcwd() 
+	os.mkdir('source_models')
+	os.chdir('source_models')
+	tf.keras.models.save_model(autoencoder_model, concept_name+'.h5')
+	os.chdir(cwd)
+
 
 
 def build_model():
