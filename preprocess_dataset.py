@@ -19,9 +19,9 @@ def prepareInputFromImageFolder(path):
 def prepareInputFromImage(path, count):
     all_images = []
     for image_path in os.listdir(path):
-        img = io.imread(path+image_path)
-        img = resize(img, (148, 148))
-        if count != 0:
-                all_images.append(img)
-        count = count - 1
-    return np.array(all_images)
+			  if count != 0:
+						img = io.imread(path+'//'+image_path)
+						img = resize(img, (148, 148))
+						all_images.append(img)
+						count = count - 1
+						return np.array(all_images)
