@@ -6,14 +6,7 @@ from skimage.transform import resize
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 from tensorflow import keras as keras 
-
-def prepareInputFromImageFolder(path) :
-  all_images = []
-  for image_path in os.listdir(path):
-    img = io.imread(path+image_path)
-    img = resize(img,(148, 148))
-    all_images.append(img)
-  return np.array(all_images)
+from preprocess_dataset import prepareInputFromImageFolder
 
 def autoencoder(input_img):
 		#encoder
@@ -41,12 +34,12 @@ def fit_model(autoencoder_model,train_X,valid_X,train_ground,valid_ground):
 	plt.figure()
 	plt.plot(epochs, loss, 'bo', label='Training loss')
 	plt.plot(epochs, val_loss, 'b', label='Validation loss')
-	plt.title('Training and validation loss -Autoencoder for Dog Images')
+	plt.title('Training and validation loss -Autoencoder for  Images')
 	plt.legend()
 	plt.show()
 
 def save_model(autoencoder_model,concept_name):
-	tf.keras.models.save_model(autoencoder_model, concept_name+'.h5')
+	tf.keras.models.save_model(autoencoder_model, "source_models\\"+concept_name+'.h5')
 
 
 def build_model():
