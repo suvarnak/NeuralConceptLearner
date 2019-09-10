@@ -28,7 +28,7 @@ def mse(imageA, imageB):
 
 
 def generate_target(source_model, base_target_dir, target_concept):
-    path = base_target_dir + "\\"+ target_concept
+    path = base_target_dir + target_concept
     print(path)
     x_test = prepareInputFromImage(path, 1)
     print(x_test.shape)
