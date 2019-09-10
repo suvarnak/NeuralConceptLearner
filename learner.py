@@ -41,7 +41,8 @@ def fit_model(autoencoder_model,train_X,valid_X,train_ground,valid_ground):
 
 def save_model(autoencoder_model,concept_name):
 	cwd = os.getcwd() 
-	os.mkdir('source_models')
+	if not os.path.exists('source_models'):
+		os.mkdir('source_models')
 	os.chdir('source_models')
 	tf.keras.models.save_model(autoencoder_model, concept_name+'.h5')
 	os.chdir(cwd)
