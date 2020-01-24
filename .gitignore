@@ -1,4 +1,3 @@
-dataset
 *.h5
 source_models
 *.pyc
